@@ -11,8 +11,11 @@ export class ChildModule {
   static config: any = '';
 
   static forRoot(config: any): ModuleWithProviders  {
+    // Should be supported.. but doesn't look like it is
     ChildModule.config = config;
-    console.log(config);
+
+    // Confirmed not supported as per: https://github.com/angular/angular/issues/14707
+    // console.log(config);
 
     return {
       ngModule: ChildModule
