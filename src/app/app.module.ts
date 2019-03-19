@@ -4,6 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildModule } from './child/child.module';
+import { environment } from 'src/environments/environment';
+
+export function greetingGetter() {
+  return 'Hello world!';
+}
+
+export function isProductionGetter() {
+  return environment.production;
+}
 
 @NgModule({
   declarations: [
@@ -12,7 +21,12 @@ import { ChildModule } from './child/child.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChildModule.forRoot('Hello world!')
+    ChildModule.forRoot({
+      config: {
+        greetingGetter: greetingGetter,
+        isProductionGetter: isProductionGetter
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
