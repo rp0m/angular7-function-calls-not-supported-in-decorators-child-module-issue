@@ -12,6 +12,7 @@ export class ChildModule {
 
   static forRoot(config: any): ModuleWithProviders  {
     ChildModule.config = config;
+    console.log(config);
 
     return {
       ngModule: ChildModule
